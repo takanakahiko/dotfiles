@@ -96,8 +96,8 @@ initialize() {
       ;;
   esac
 
-  [ ${SHELL} != "/bin/zsh"  ] && chsh -s /bin/zsh
-
+  [ ${SHELL} != "/bin/zsh" ] && chsh -s /bin/zsh
+  
   if [ ! -d ${HOME}/.anyenv ]; then
     git clone https://github.com/riywo/anyenv ~/.anyenv
     anyenv install goenv
@@ -110,9 +110,9 @@ initialize() {
 
   run_go
 
-  [ ! -d ${HOME}/.zplug ] && curl -sL zplug.sh/installer | zsh
+  #[ ! -d ${HOME}/.zplug ] && curl -sL zplug.sh/installer | zsh
   [ ! -d ${HOME}/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
-
+  
   set +e
   if has "pyenv"; then
     [ ! -d $(pyenv root)/plugins/pyenv-virtualenv ] && git clone https://github.com/yyuu/pyenv-virtualenv $(pyenv root)/plugins/pyenv-virtualenv

@@ -13,8 +13,7 @@ run_brew() {
     [[ $? ]] && echo "$(tput setaf 2)Update Homebrew complete. ✔︎$(tput sgr0)"
 
     brew tap 'caskroom/cask'
-    brew tap 'homebrew/apache'
-    brew tap 'homebrew/dupes'
+    brew tap 'homebrew/homebrew-core'
     brew tap 'sanemat/font'
     brew tap 'homebrew/php'
     brew tap 'greymd/tools'
@@ -22,11 +21,11 @@ run_brew() {
     local list_formulae
     local -a missing_formulae
     local -a desired_formulae=(
-      'ab'
+      #'ab'
       'autoconf'
       'automake'
       'awscli'
-      'android-sdk'
+      #'android-sdk'
       'ansible'
       'asciinema'
       'composer'
@@ -39,7 +38,7 @@ run_brew() {
       'gibo'
       'git'
       'gpg'
-      'httpd22'
+      'httpd'
       'imagemagick'
       'iproute2mac'
       'jq'
@@ -104,15 +103,14 @@ run_brew() {
       'dropbox'
       'firefox'
       'franz'
-      'google-chrome'
-      'google-drive'
-      'slack'
+      #'google-chrome'
+      #'slack'
       'skitch'
-      'skype'
+      #'skype'
       'trailer'
-      'vagrant'
-      'virtualbox'
-      'xquartz'
+      #'vagrant'
+      #'virtualbox'
+      #'xquartz'
     )
     # cask
     local installed=`brew cask list`
@@ -140,4 +138,4 @@ run_brew() {
     brew cleanup
     echo "$(tput setaf 2)Cleanup Homebrew complete. ✔︎$(tput sgr0)"
   fi
-}
+} 
