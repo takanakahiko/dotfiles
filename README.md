@@ -1,8 +1,6 @@
 # Dotfiles
 OS X / Ubuntu dotfiles.
 
-[![asciicast](https://asciinema.org/a/47577.png)](https://asciinema.org/a/47577)
-
 ##  How to install
 The installation step requires the [XCode Command Line Tools](https://developer.apple.com/downloads)
 
