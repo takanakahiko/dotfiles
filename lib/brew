@@ -15,7 +15,7 @@ run_brew() {
     brew tap 'caskroom/cask'
     brew tap 'homebrew/homebrew-core'
     brew tap 'sanemat/font'
-    brew tap 'homebrew/php'
+#   brew tap 'homebrew/php'
     brew tap 'greymd/tools'
 
     local list_formulae
