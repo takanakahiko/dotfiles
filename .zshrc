@@ -114,3 +114,8 @@ function google() {
     fi
     w3m http://www.google.co.jp/$opt
 }
+
+source ~/.bash_profile
+autoload -U promptinit; promptinit
+prompt pure
+source /Users/takanakahiko/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
