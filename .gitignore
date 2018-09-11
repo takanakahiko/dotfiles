@@ -1,9 +1,10 @@
 *.swp	
 *~	
 .DS_Store	
- .bundle/cache	
+.bundle/cache	
 .config/*	
- # whitelist	
+
+# whitelist	
 !.config/nvim	
 !.config/pt	
 !.config/git	
