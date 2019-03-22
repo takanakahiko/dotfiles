@@ -16,7 +16,7 @@ bindkey -e
 setopt no_beep
 setopt auto_cd
 setopt auto_pushd
-setopt correct
+#setopt correct
 setopt magic_equal_subst
 setopt prompt_subst
 setopt notify
@@ -123,4 +123,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/h
 
 ssh-add ~/.ssh/id_rsa
 
+export PATH=$PATH:$HOME/flutter/bin
+
+eval $(thefuck --alias)
 
