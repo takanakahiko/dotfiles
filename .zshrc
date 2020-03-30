@@ -123,7 +123,27 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/h
 
 ssh-add ~/.ssh/id_rsa
 
-export PATH=$PATH:$HOME/flutter/bin
+export PATH=$PATH:$HOME/dev/flutter/bin
 
 eval $(thefuck --alias)
 
+eval "$(direnv hook zsh)"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh
+export PATH="/usr/local/opt/opencv@2/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc'; fi
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home"
