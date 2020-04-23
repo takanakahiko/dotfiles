@@ -125,8 +125,6 @@ ssh-add ~/.ssh/id_rsa
 
 export PATH=$PATH:$HOME/dev/flutter/bin
 
-eval $(thefuck --alias)
-
 eval "$(direnv hook zsh)"
 
 # tabtab source for serverless package
