@@ -1,31 +1,14 @@
 # Dotfiles
-OS X / Ubuntu dotfiles.
 
-##  How to install
-The installation step requires the [XCode Command Line Tools](https://developer.apple.com/downloads)
+## Preparation
 
 ```
-$ java -v
-$ xcode-select --install
-```
-
-Run the following commnad.
-
-```
-$ bash -c "$(curl -fsSL raw.github.com/takanakahiko/dotfiles/master/setup.sh)"
-# Overwrite dotfiles and deploy
-$ bash -c "$(curl -fsSL raw.github.com/takanakahiko/dotfiles/master/setup.sh)" -- -f -s deploy
+$ brew install rcm
+$ cd ~ && git clone https://github.com/takanakahiko/dotfiles
 ```
 
 ## Initialize
 
 ```
-$ ~/dotfiles/dotfiles initialize
+$ env RCRC=$HOME/dotfiles/rcrc rcup
 ```
-
-## Deploy dotfiles
-
-```
-$ ~/dotfiles/dotfiles deploy
-```
-
