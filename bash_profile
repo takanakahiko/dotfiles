@@ -11,4 +11,4 @@ export PATH="$PATH:/User/takayauki.nakayama/Applications/Visual Studio Code.app/
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # JAVA
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
