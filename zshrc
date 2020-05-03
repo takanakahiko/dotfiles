@@ -144,4 +144,4 @@ if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc'; fi
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
