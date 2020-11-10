@@ -85,8 +85,8 @@ case "${OSTYPE}" in
   ;;
 esac
 
-export PATH=$HOME/.anyenv/bin:$PATH
 eval "$(anyenv init - --no-rehash)"
+export GOENV_DISABLE_GOPATH=1
 export GOPATH=$HOME/dev
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="$HOME/dev/bin:$PATH"
@@ -115,7 +115,6 @@ function google() {
     w3m http://www.google.co.jp/$opt
 }
 
-source ~/.bash_profile
 autoload -U promptinit; promptinit
 prompt pure
 
