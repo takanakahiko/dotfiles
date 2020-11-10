@@ -144,3 +144,5 @@ if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc'; fi
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
+
+alias g='cd $(ghq root)/$(ghq list | peco)'
