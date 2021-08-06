@@ -85,7 +85,10 @@ case "${OSTYPE}" in
   ;;
 esac
 
-eval "$(anyenv init - --no-rehash)"
+export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(anyenv init -)"
+
 export GO111MODULE=on
 export GOPATH=$HOME/dev
 export PATH="/usr/local/opt/gettext/bin:$PATH"
