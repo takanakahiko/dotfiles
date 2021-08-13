@@ -88,6 +88,7 @@ esac
 export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(anyenv init -)"
+eval "$(pyenv init --path)"
 
 export GO111MODULE=on
 export GOPATH=$HOME/dev
