@@ -27,6 +27,7 @@ brew "hub"
 brew "jo"
 brew "libxml2"
 brew "libxmlsec1"
+brew "mas"
 brew "neovim"
 brew "nkf"
 brew "openjdk"
@@ -41,4 +42,11 @@ brew "unar"
 brew "agrinman/tap/tunnelto"
 brew "go-swagger/go-swagger/go-swagger"
 brew "homeport/tap/dyff"
-cask "java"
+mas "GarageBand", id: 682658836
+mas "GIPHY CAPTURE", id: 668208984
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Slack", id: 803453959
+mas "StatusClock", id: 552792489
+mas "The Unarchiver", id: 425424353
+mas "Xcode", id: 497799835

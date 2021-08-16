@@ -4,7 +4,7 @@
 
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-$ brew install rcm
+$ brew bundle
 $ cd ~ && git clone https://github.com/takanakahiko/dotfiles
 $ env RCRC=$HOME/dotfiles/rcrc rcup
 ```
@@ -13,6 +13,7 @@ $ env RCRC=$HOME/dotfiles/rcrc rcup
 
 ```bash
 $ rcup
+$ brew bundle
 $ brew bundle cleanup
 ```
 
