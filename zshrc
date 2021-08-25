@@ -89,9 +89,11 @@ export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(anyenv init -)"
 eval "$(pyenv init --path)"
-
 export GO111MODULE=on
-export GOPATH=$HOME/dev
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="$HOME/dev/bin:$PATH"
 
@@ -154,3 +156,6 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/
 
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias ll='ls -lGaf'
+
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
