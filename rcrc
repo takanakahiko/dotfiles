@@ -1,2 +1,2 @@
-EXCLUDES="README*.md LICENSE Brewfile Brewfile.lock.json"
+EXCLUDES="README*.md LICENSE Brewfile Brewfile.lock.json setup.sh"
 DOTFILES_DIRS="$HOME/dotfiles"
