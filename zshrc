@@ -85,6 +85,9 @@ case "${OSTYPE}" in
   ;;
 esac
 
+# Setup HomeBrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(anyenv init -)"
@@ -121,6 +124,9 @@ function google() {
     w3m http://www.google.co.jp/$opt
 }
 
+# Setup prompt pure
+# https://github.com/sindresorhus/pure/issues/584#issuecomment-989054653
+fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -U promptinit; promptinit
 prompt pure
 
