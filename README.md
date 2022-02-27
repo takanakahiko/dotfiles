@@ -7,7 +7,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 $ cd ~ && git clone https://github.com/takanakahiko/dotfiles
 $ cd dotfiles
 $ brew bundle
-$ rcup
+$ env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
 ## Follow changes from other machines
