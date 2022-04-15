@@ -161,7 +161,7 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
-export CLOUDSDK_PYTHON='$(anyenv root)/envs/pyenv/versions/2.7.18/bin/python'
+export CLOUDSDK_PYTHON="$(anyenv root)/envs/pyenv/versions/2.7.18/bin/python"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc'; fi
