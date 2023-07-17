@@ -88,14 +88,9 @@ esac
 # Setup HomeBrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(anyenv init -)"
-eval "$(pyenv init --path)"
-export GO111MODULE=on
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="$HOME/dev/bin:$PATH"
@@ -161,8 +156,6 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
-export CLOUDSDK_PYTHON="$(anyenv root)/envs/pyenv/versions/2.7.18/bin/python"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -173,3 +166,16 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 # https://www.rust-lang.org/learn/get-started
 source $HOME/.cargo/env
+
+. $(brew --prefix asdf)/libexec/asdf.sh
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# pnpm
+export PNPM_HOME="/Users/takayuki.nakayama/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
