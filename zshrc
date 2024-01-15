@@ -135,13 +135,13 @@ eval "$(direnv hook zsh)"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh
+[[ -f $HOME/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh
+[[ -f $HOME/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh
+[[ -f $HOME/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 
 
@@ -157,10 +157,10 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -173,9 +173,15 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # pnpm
-export PNPM_HOME="/Users/takayuki.nakayama/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+eval "$(anyenv init -)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
