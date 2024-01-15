@@ -23,3 +23,5 @@
 	root = ~/dev/src
 [ghq "http:/plugins.svn.wordpress.org/"]
   vcs = svn
+[push]
+	autoSetupRemote = true
