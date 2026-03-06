@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/t-nakayama/completions:"* ]]; then export FPATH="/Users/t-nakayama/completions:$FPATH"; fi
 # ------------------------------
 # General Settings
 # ------------------------------
@@ -144,23 +146,14 @@ eval "$(direnv hook zsh)"
 [[ -f $HOME/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh
 export PATH="/usr/local/opt/opencv@2/bin:$PATH"
 
-
-
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home"
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# PATH=${JAVA_HOME}/bin:${PATH}
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias ll='ls -lGaf'
 
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
-
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/takayuki.nakayama/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -168,7 +161,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 source $HOME/.cargo/env
 
 . $(brew --prefix asdf)/libexec/asdf.sh
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
@@ -185,3 +177,22 @@ eval "$(anyenv init -)"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/t-nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/t-nakayama/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/t-nakayama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/t-nakayama/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval $(thefuck --alias)
+
+. "$HOME/.local/share/../bin/env"
+. "/Users/t-nakayama/.deno/env"
+
+# if [ -n "$SSH_CONNECTION" ] && [ -z "$KEYCHAIN_UNLOCKED" ]; then
+#   security unlock-keychain ~/Library/Keychains/login.keychain-db
+#   export KEYCHAIN_UNLOCKED=true
+# fi
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+alias wsc='wt switch --create --execute=claude'

@@ -4,7 +4,6 @@
 cache
 temp
 tmp
-log
 
 .tern-project
 .tern-port
@@ -27,3 +26,13 @@ log
 !.config/yarn
 .config/yarn/link
 .config/yarn/global/node_modules
+
+# claude
+**/.claude/settings.local.json
+**/CLAUDE.local.md
+
+# mcp
+.taskmaster
+
+# worktree
+.worktrees
