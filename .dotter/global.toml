@@ -1,0 +1,3 @@
+[default.files."home"]
+target = "~"
+type = "symbolic"
