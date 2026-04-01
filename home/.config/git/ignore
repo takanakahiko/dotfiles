@@ -36,3 +36,6 @@ tmp
 
 # worktree
 .worktrees
+
+# superset
+.superset
