@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# git worktree add で新しいワークツリーができたとき、本体チェックアウトにある
+# .env / .env.* （git で無視されているもの）を同じ相対パスへコピーする。
+# ~/.config/git/config の [hook "copy-env"] から post-checkout として呼ばれる。
+# すでにあるファイルは上書きしない。失敗しても git の操作は止めない。
+
+# post-checkout の引数: <前の HEAD> <新しい HEAD> <ブランチ切り替えなら 1>
+# ワークツリー作成時は前の HEAD がすべて 0 になる。
+[[ "${1:-}" =~ ^0+$ ]] || exit 0
+
+here="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+main="$(git worktree list --porcelain 2>/dev/null | sed -n '1s/^worktree //p')"
+[[ -n "$main" && -d "$main" && "$main" != "$here" ]] || exit 0
+
+# --directory を付けると、丸ごと無視されたフォルダ（node_modules など）の中は探さない
+git -C "$main" ls-files -z --others --ignored --exclude-standard --directory \
+  -- ':(glob)**/.env' ':(glob)**/.env.*' 2>/dev/null |
+  while IFS= read -r -d '' rel; do
+    [[ -f "$main/$rel" && ! -e "$here/$rel" ]] || continue
+    mkdir -p "$(dirname "$here/$rel")" &&
+      cp -p "$main/$rel" "$here/$rel" &&
+      echo "copy-env: copied $rel" >&2
+  done
+
+exit 0

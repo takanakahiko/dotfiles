@@ -196,3 +196,9 @@ eval $(thefuck --alias)
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 alias wsc='wt switch --create --execute=claude'
+export PATH="$HOME/.local/bin:$PATH"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/t-nakayama/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
