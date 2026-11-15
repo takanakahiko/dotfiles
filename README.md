@@ -31,11 +31,3 @@ git add -A && git commit -m "update" && git push
 cp ~/.vimrc ~/dotfiles/home/.vimrc
 dotter deploy -v
 ```
-
-## Migrate from rcm
-
-If this is first migration from RCM in this machine:
-
-```bash
-./migrate-from-rcm.sh
-```

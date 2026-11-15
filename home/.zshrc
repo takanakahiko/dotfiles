@@ -1,17 +1,14 @@
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/Users/t-nakayama/completions:"* ]]; then export FPATH="/Users/t-nakayama/completions:$FPATH"; fi
+if [[ ":$FPATH:" != *":$HOME/completions:"* ]]; then export FPATH="$HOME/completions:$FPATH"; fi
 # ------------------------------
 # General Settings
 # ------------------------------
 export EDITOR=vim
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
-export KCODE=u
-export AUTOFEATURE=true
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
-export TERM=screen-256color
 
 bindkey -e
 
@@ -25,7 +22,6 @@ setopt notify
 setopt equals
 
 ### Complement ###
-autoload -U compinit; compinit
 setopt auto_list                     # 補完候補を一覧で表示する(d)
 setopt auto_menu                     # 補完キー連打で補完候補を順に表示する(d)
 setopt list_packed
@@ -90,77 +86,31 @@ esac
 # Setup HomeBrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# 補完の初期化は fpath を揃えたあとにここで 1 回だけ行う（後続の gcloud / wt などが compdef を使う）
+fpath=($HOME/.docker/completions /opt/homebrew/share/zsh/site-functions $fpath)
+autoload -Uz compinit; compinit
+
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="$HOME/dev/bin:$PATH"
-
 export PATH=$PATH:$XDG_CONFIG_HOME/yarn/global/node_modules/.bin
-export PATH=$PATH:$XDG_CONFIG_HOME/composer/vendor/bin
-export PATH=$PATH:$HOME/.cargo/bin
-[ -f ~/.zplug/init.zsh ] && source ~/.init.zplug
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
-autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 autoload -Uz zmv
 
-# extra function
-function google() {
-    local str opt
-    if [ $# != 0 ]; then
-        for i in $*; do
-            str="$str+$i"
-        done
-        str=`echo $str | sed 's/^\+//'`
-        opt='search?num=50&hl=ja&lr=lang_ja'
-        opt="${opt}&q=${str}"
-    fi
-    w3m http://www.google.co.jp/$opt
-}
-
 # Setup prompt pure
 # https://github.com/sindresorhus/pure/issues/584#issuecomment-989054653
-fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -U promptinit; promptinit
 prompt pure
 
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-
-ssh-add ~/.ssh/id_rsa
-
-export PATH=$PATH:$HOME/dev/flutter/bin
-
 eval "$(direnv hook zsh)"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f $HOME/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f $HOME/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f $HOME/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/takayuki.nakayama/dev/gitlab/test-aws-lambda/node_modules/tabtab/.completions/slss.zsh
-export PATH="/usr/local/opt/opencv@2/bin:$PATH"
-
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-# PATH=${JAVA_HOME}/bin:${PATH}
-. ~/.asdf/plugins/java/set-java-home.zsh
 
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias ll='ls -lGaf'
 
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
-export PATH="$HOME/.poetry/bin:$PATH"
-
 # https://www.rust-lang.org/learn/get-started
 source $HOME/.cargo/env
-
-. $(brew --prefix asdf)/libexec/asdf.sh
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
@@ -172,22 +122,16 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-eval "$(anyenv init -)"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/t-nakayama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/t-nakayama/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/t-nakayama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/t-nakayama/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 eval $(thefuck --alias)
 
-. "$HOME/.local/share/../bin/env"
-. "/Users/t-nakayama/.deno/env"
+. "$HOME/.local/bin/env"
+. "$HOME/.deno/env"
 
 # if [ -n "$SSH_CONNECTION" ] && [ -z "$KEYCHAIN_UNLOCKED" ]; then
 #   security unlock-keychain ~/Library/Keychains/login.keychain-db
@@ -197,8 +141,6 @@ eval $(thefuck --alias)
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 alias wsc='wt switch --create --execute=claude'
 export PATH="$HOME/.local/bin:$PATH"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/t-nakayama/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
+
+# mise (runtime version manager)
+eval "$(mise activate zsh)"

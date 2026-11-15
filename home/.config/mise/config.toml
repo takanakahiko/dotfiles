@@ -1,0 +1,6 @@
+# グローバルに使うランタイムのバージョン（旧 ~/.tool-versions / asdf から移行）
+# java は temurin@8 cask の system Java を使うので mise では管理しない
+[tools]
+node = "26.12.1"
+python = "3.13.3t"
+bun = "1.3.12"

@@ -1,5 +1,3 @@
-!bin
-vim/bundle/
 .DS_Store
 .dotter/local.toml
 .dotter/cache.toml
