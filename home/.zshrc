@@ -106,7 +106,8 @@ prompt pure
 
 eval "$(direnv hook zsh)"
 
-alias g='cd $(ghq root)/$(ghq list | peco)'
+# ghq のリポジトリを fzf で選んで移動
+alias g='cd "$(ghq root)/$(ghq list | fzf --height 40% --reverse)"'
 alias ll='ls -lGaf'
 
 # https://www.rust-lang.org/learn/get-started
@@ -148,3 +149,23 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # mise (runtime version manager)
 eval "$(mise activate zsh)"
+
+# ------------------------------
+# Interactive tools
+# ------------------------------
+# zoxide: よく行くディレクトリに `z 名前の一部` で移動（`zi` で fzf から選ぶ）
+eval "$(zoxide init zsh)"
+
+# 以下はキー入力まわりなので、端末につながっているときだけ読み込む
+# （ツールが端末なしで `zsh -i -c` を起動したときに fzf が zle の警告を出さないように。
+#   この場合も zle オプションはオンのままなので -o zle では判定できない）
+if [[ -t 0 && -t 1 ]]; then
+  # fzf: Ctrl-R で履歴検索、Ctrl-T でファイル選択、Alt-C でディレクトリ移動
+  source <(fzf --zsh)
+
+  # 入力中に履歴から補完候補を薄く表示する（→ キーで確定）
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+  # コマンドの色付け。ほかのウィジェットを包むので必ず最後に読み込む
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
