@@ -114,6 +114,10 @@ source $HOME/.cargo/env
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
+# Java は temurin cask の JDK を使う。旧 asdf が残した JAVA_HOME=/usr を引き継ぐと
+# /usr/bin/java が自分自身を呼び続けて固まるので、毎回ここで設定し直す
+if JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"; then export JAVA_HOME; else unset JAVA_HOME; fi
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
