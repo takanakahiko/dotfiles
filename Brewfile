@@ -110,13 +110,11 @@ mas "Display Menu", id: 549083868
 mas "GarageBand", id: 682658836
 mas "GIPHY CAPTURE", id: 668208984
 mas "GoPro Webcam", id: 6477835262
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "PXL Cam", id: 6505083993
 mas "Skitch", id: 425955336
 mas "Xcode", id: 497799835
 vscode "anthropic.claude-code"
