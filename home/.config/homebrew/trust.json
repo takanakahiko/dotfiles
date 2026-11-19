@@ -1,0 +1,17 @@
+{
+  "trustedformulae": [
+    "agrinman/tap/tunnelto",
+    "ariga/tap/atlas",
+    "go-swagger/go-swagger/go-swagger",
+    "hashicorp/tap/terraform",
+    "shivammathur/extensions/mcrypt@8.4"
+  ],
+  "trustedtaps": [
+    "agrinman/tap",
+    "ariga/tap",
+    "go-swagger/go-swagger",
+    "homeport/tap",
+    "shivammathur/extensions"
+  ],
+  "trustedcasks": []
+}

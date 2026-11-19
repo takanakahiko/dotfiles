@@ -110,9 +110,6 @@ eval "$(direnv hook zsh)"
 alias g='cd "$(ghq root)/$(ghq list | fzf --height 40% --reverse)"'
 alias ll='ls -lGaf'
 
-# https://www.rust-lang.org/learn/get-started
-source $HOME/.cargo/env
-
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # Java は temurin cask の JDK を使う。旧 asdf が残した JAVA_HOME=/usr を引き継ぐと
