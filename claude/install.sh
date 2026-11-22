@@ -13,8 +13,9 @@ here="$(cd "$(dirname "$0")" && pwd)"
 
 claude plugin marketplace add "$here" >/dev/null
 claude plugin marketplace add takanakahiko/skills >/dev/null
-# 固定した参照を書き換えたときに、新しい内容を読み直す
+# マーケットプレイスの内容を読み直す（固定した参照の書き換えや、skills の新しいコミットを拾う）
 claude plugin marketplace update dotfiles-deps >/dev/null
+claude plugin marketplace update takanakahiko >/dev/null
 
 installed="$(claude plugin list --json | jq -r '.[].id')"
 
