@@ -1,0 +1,4 @@
+# 他の人のスキル（中身は持たず、コミットで固定する）
+# 書式: リポジトリ  スキル名  コミット
+# 版を上げるときはコミットを書き換えて claude/install.sh を実行する
+nanaism/yomiyasu  yomiyasu  c49d5f1bee91258e33e1febc3569c6c87be7669e

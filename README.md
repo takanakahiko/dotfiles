@@ -32,9 +32,13 @@ cp ~/.vimrc ~/dotfiles/home/.vimrc
 dotter deploy -v
 ```
 
-## Claude Code plugins
+## Claude Code skills
 
-`dotter deploy` のあとに `claude/install.sh` が動き、プラグインを入れ直します。
+`dotter deploy` のあとに `claude/install.sh` が動き、スキルを入れます。何度実行しても大丈夫です。
 
-- 自作のスキルは takanakahiko/skills で管理します。
-- 他の人のプラグインは中身を持たず、`claude/.claude-plugin/marketplace.json` にリポジトリとコミット（`sha`）だけを書いて固定します。版を上げるときは `sha` を書き換えて `claude/install.sh` を実行します。
+- **自分のスキル**は takanakahiko/skills で管理します。作業コピー（`$(ghq root)/github.com/takanakahiko/skills`）の `skills/*` を `~/.claude/skills/` にリンクします。
+  - 手元で直すと、そのまま作業コピーの変更になります。コミットして PR を出せば公開されます。
+  - 公開先の変更は `install.sh` が `git pull` で取り込みます。作業コピーが main 以外のブランチにいるときと、未コミットの変更があるときは取り込みません。
+  - スキルが増えたり消えたりしても、`install.sh` を実行すればリンクが揃います。
+- **他の人のスキル**は中身を持たず、`claude/skills.txt` にリポジトリとコミットを書いて固定します。`gh skill install --pin` で入れます。版を上げるときは、コミットを書き換えて `install.sh` を実行します。
+- japanese-guard（フック）は、`claude/.claude-plugin/marketplace.json` に置いています。
