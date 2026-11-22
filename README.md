@@ -31,3 +31,10 @@ git add -A && git commit -m "update" && git push
 cp ~/.vimrc ~/dotfiles/home/.vimrc
 dotter deploy -v
 ```
+
+## Claude Code plugins
+
+`dotter deploy` のあとに `claude/install.sh` が動き、プラグインを入れ直します。
+
+- 自作のスキルは takanakahiko/skills で管理します。
+- 他の人のプラグインは中身を持たず、`claude/.claude-plugin/marketplace.json` にリポジトリとコミット（`sha`）だけを書いて固定します。版を上げるときは `sha` を書き換えて `claude/install.sh` を実行します。
